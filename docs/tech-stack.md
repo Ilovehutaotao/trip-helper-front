@@ -29,7 +29,6 @@
 ---
 
 ## 项目初始化
-
 ```bash
 npm create vite@latest tripstar-react -- --template react-ts
 cd tripstar-react
