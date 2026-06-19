@@ -41,14 +41,7 @@ React 19 CSR SPA (Vite 8, TypeScript 6). Two main routes:
 ```
 No SASS, no CSS Modules. All colors/tokens defined in `@theme {}` block.
 
-**Landing page spec** (整数化尺寸，无小数 px):
-- Layout, spacing, color tokens, Ant Design config → [`docs/design-doc/landing-layout.md`](docs/design-doc/landing-layout.md)
-- Design analysis (@pageStyle) → [`docs/@pageStyle/`](docs/@pageStyle/)
-
-**Local assets** (fonts, images):
-- Usage guide → [`public/assets/ASSETS-GUIDE.md`](public/assets/ASSETS-GUIDE.md)
-- Fonts: Outfit 300-900 + Nunito Sans, Raleway
-- Images: `clouds.png`, `antoine-barres.jpg`
+**Principle**: Integer-only sizing (no decimal px). Use Tailwind 4px scale or design spec values (12px, 20px, 30px radius). All color/spacing tokens in `@theme {}`, configured via Ant Design `ConfigProvider` token.
 
 ## Key Dependencies
 
@@ -64,11 +57,7 @@ No SASS, no CSS Modules. All colors/tokens defined in `@theme {}` block.
 | Dates | dayjs | - |
 | Export | html2canvas | - |
 
-## Resources
+## References
 
-| Topic | Link |
-|-------|------|
-| Component dataflow | [`docs/components-dataflow.md`](docs/components-dataflow.md) |
-| Landing layout spec | [`docs/design-doc/landing-layout.md`](docs/design-doc/landing-layout.md) |
-| Page style analysis | [`docs/@pageStyle/`](docs/@pageStyle/) |
-| Local assets guide | [`public/assets/ASSETS-GUIDE.md`](public/assets/ASSETS-GUIDE.md) |
+Detailed specifications, design docs, and analysis: `docs/` folder.  
+Component architecture: `docs/components-dataflow.md`.
