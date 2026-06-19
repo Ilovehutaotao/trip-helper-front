@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+@theme {
+  /* 颜色 — 深色主题 */
+  --color-page:          rgb(10, 25, 38);
+  --color-input-bg:      rgba(14, 27, 38, 0.66);
+  --color-card-bg:       rgba(255, 255, 255, 0.04);
+  --color-primary:       rgb(236, 243, 250);
+  --color-title:         rgb(255, 255, 255);
+  --color-subtitle:      rgba(224, 233, 242, 0.78);
+  --color-label:         rgba(240, 246, 252, 0.94);
+  --color-accent-orange: rgb(245, 89, 61);
+  --color-accent-blue:   rgb(22, 119, 255);
+  --color-border-card:   rgba(203, 227, 255, 0.12);
+  --color-border-input:  rgba(236, 243, 250, 0.2);
+
+  /* 字体 */
+  --font-outfit: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  /* 圆角 */
+  --radius-btn-cta:  30px;
+  --radius-btn-form: 12px;
+  --radius-card:     20px;
+  --radius-btn-add:  10px;
+  --radius-btn-sm:   6px;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-outfit);
+    background-color: rgb(10, 25, 38);
+    color: rgb(236, 243, 250);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

@@ -1,0 +1,7 @@
+.hero-section {
+  background-image: url('/assets/images/antoine-barres.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
