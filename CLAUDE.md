@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for working with TripStar frontend (React 19 SPA rebuild of Vue 3 app).
 
 ## Commands
 
@@ -11,63 +11,64 @@ npm run lint       # eslint
 npm run preview    # preview production build
 ```
 
-**All `npm install` commands require `--legacy-peer-deps`** — `eslint-plugin-react@7.37.5` has a peer conflict with `eslint@10.5.0` that cannot be resolved without this flag.
+**⚠️ All `npm install` require `--legacy-peer-deps`** — `eslint-plugin-react@7.37.5` conflicts with `eslint@10.5.0`.
 
 ## Architecture
 
-This is a React 19 CSR SPA (Vite 8 + TypeScript 6) — a React rebuild of a Vue 3 app. The reference for component responsibilities and data flow is `docs/components-dataflow.md`.
+React 19 CSR SPA (Vite 8, TypeScript 6). Two main routes:
 
-**Target route structure:**
+| Route | Purpose |
+|-------|---------|
+| `/` | Landing: trip planner form + history |
+| `/result?plan_id=…` | Result: 6-tab trip display |
 
-| Route | Component | Purpose |
-|-------|-----------|---------|
-| `/` | `Landing` | Trip planner form + history list |
-| `/result?plan_id=…` | `Result` | 6-tab trip plan display |
+**State layers**: Component (`useState` / react-hook-form) → sessionStorage (`tripPlan`, `graphData`, `planId`) → localStorage (locale, API keys) → Backend (`PUT /api/settings`).
 
-**Planned component tree:**
-```
-App
-└── <Routes>
-    ├── Landing → NavBar
-    └── Result  → NavBar, OverviewAttractionCard (in Swiper), AIChat
-```
+📖 **Details**: Component responsibilities, data flow, Vue→React mappings — see [`docs/components-dataflow.md`](docs/components-dataflow.md).
 
-**State layers:**
+## Development Workflow
 
-| Layer | Tech | Contents |
-|-------|------|---------|
-| Component | `useState` / react-hook-form | Form data, loading state, UI |
-| Cross-route | `sessionStorage` | `tripPlan`, `graphData`, `planId` |
-| User prefs | `localStorage` | locale, API base URL, map keys |
-| Backend | `PUT /api/settings` | OpenAI config, map keys |
+- **Planning & code review**: Use [/requesting-code-review](/requesting-code-review), [/receiving-code-review](/receiving-code-review), [/superpowers](/superpowers).
+- **Bug fixes & features**: Use [/systematic-debugging](/systematic-debugging), [/test-driven-development](/test-driven-development).
+- **Major implementation**: Use [/writing-plans](/writing-plans) → review → [/executing-plans](/executing-plans).
+- **Parallel tasks**: Use [/dispatching-parallel-agents](/dispatching-parallel-agents).
 
-**Key Vue → React mappings** (from `docs/components-dataflow.md`):
+## Design & Styling
 
-- `reactive<LandingFormData>` → `useForm()` from react-hook-form
-- `ref<T>` + `watch` → `useState<T>` + `useEffect`
-- `onMounted` / `onUnmounted` → `useEffect(() => { … return cleanup }, [])`
-- `computed(() => …)` → `useMemo(() => …, [deps])`
-- Imperative instances (map, swiper, echarts) → `useRef` + `useEffect` init/destroy
-- `$emit('select-day', payload)` → `onSelectDay: (payload) => void` prop
-
-## Styling
-
-Tailwind CSS v4 via `@tailwindcss/vite` plugin — no config file needed. Single entry in `src/index.css`:
-
+**Tailwind CSS v4** via `@tailwindcss/vite` — no config file. Single entry in `src/index.css`:
 ```css
 @import "tailwindcss";
 ```
+No SASS, no CSS Modules. All colors/tokens defined in `@theme {}` block.
 
-No SASS, no CSS Modules.
+**Landing page spec** (整数化尺寸，无小数 px):
+- Layout, spacing, color tokens, Ant Design config → [`docs/design-doc/landing-layout.md`](docs/design-doc/landing-layout.md)
+- Design analysis (@pageStyle) → [`docs/@pageStyle/`](docs/@pageStyle/)
 
-## Key dependencies
+**Local assets** (fonts, images):
+- Usage guide → [`public/assets/ASSETS-GUIDE.md`](public/assets/ASSETS-GUIDE.md)
+- Fonts: Outfit 300-900 + Nunito Sans, Raleway
+- Images: `clouds.png`, `antoine-barres.jpg`
 
-- **UI components**: Ant Design 6
-- **Routing**: react-router-dom v7
-- **Forms**: react-hook-form
-- **HTTP**: axios
-- **Charts**: echarts + echarts-for-react
-- **Carousel**: swiper
-- **i18n**: i18next + react-i18next (zh-CN, ja-JP, en-US)
-- **Dates**: dayjs
-- **Export**: html2canvas
+## Key Dependencies
+
+| Purpose | Package | Version |
+|---------|---------|---------|
+| UI components | Ant Design 6 | 6.x |
+| Routing | react-router-dom | v7 |
+| Forms | react-hook-form | - |
+| HTTP | axios | - |
+| Charts | echarts + echarts-for-react | - |
+| Carousel | swiper | - |
+| i18n | i18next + react-i18next | zh-CN, ja-JP, en-US |
+| Dates | dayjs | - |
+| Export | html2canvas | - |
+
+## Resources
+
+| Topic | Link |
+|-------|------|
+| Component dataflow | [`docs/components-dataflow.md`](docs/components-dataflow.md) |
+| Landing layout spec | [`docs/design-doc/landing-layout.md`](docs/design-doc/landing-layout.md) |
+| Page style analysis | [`docs/@pageStyle/`](docs/@pageStyle/) |
+| Local assets guide | [`public/assets/ASSETS-GUIDE.md`](public/assets/ASSETS-GUIDE.md) |
