@@ -1,0 +1,250 @@
+.trip-plan-form {
+  width: 100%;
+}
+
+.form-section {
+  margin-bottom: 48px;
+}
+
+.form-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(240, 246, 252, 0.94);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgb(245, 89, 61);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  margin-right: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-label {
+  display: block;
+  color: rgba(240, 246, 252, 0.94);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: rgb(245, 89, 61);
+  margin-right: 4px;
+}
+
+/* Cities Section */
+.cities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.city-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.city-input-group,
+.city-days-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  color: rgba(236, 243, 250, 0.7) !important;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.form-input::placeholder {
+  color: rgba(236, 243, 250, 0.4) !important;
+}
+
+.form-input-number {
+  width: 100% !important;
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  border-radius: 8px;
+  height: 40px;
+}
+
+.form-input-number input {
+  background-color: transparent !important;
+  color: rgba(236, 243, 250, 0.7) !important;
+}
+
+.add-city-btn {
+  border-color: rgba(245, 89, 61, 0.5) !important;
+  color: rgba(245, 89, 61, 0.8) !important;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.add-city-btn:hover {
+  border-color: rgba(245, 89, 61, 0.7) !important;
+  color: rgba(245, 89, 61, 1) !important;
+}
+
+/* Date Section */
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.date-group,
+.days-display-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-picker {
+  width: 100% !important;
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  border-radius: 8px;
+  height: 40px;
+}
+
+.date-picker input {
+  background-color: transparent !important;
+  color: rgba(236, 243, 250, 0.7) !important;
+  border: none !important;
+}
+
+.days-display {
+  height: 40px;
+  background-color: rgba(14, 27, 38, 0.66);
+  border: 1px solid rgba(236, 243, 250, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+/* Preferences Section */
+.preferences-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.preference-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-select {
+  width: 100% !important;
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  border-radius: 8px;
+  height: 40px;
+}
+
+.form-select .ant-select-selector {
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  border-radius: 8px;
+}
+
+.form-select .ant-select-arrow {
+  color: rgba(236, 243, 250, 0.5) !important;
+}
+
+/* Interests Section */
+.interests-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.interest-btn {
+  height: 40px;
+  border-radius: 8px;
+  border-color: rgba(236, 243, 250, 0.3) !important;
+  color: rgba(236, 243, 250, 0.7) !important;
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+}
+
+.interest-btn:hover {
+  border-color: rgba(236, 243, 250, 0.5) !important;
+  color: rgba(236, 243, 250, 0.9) !important;
+}
+
+.interest-btn.active {
+  background-color: rgba(245, 89, 61, 0.2) !important;
+  border-color: rgba(245, 89, 61, 0.5) !important;
+  color: rgba(245, 89, 61, 0.9) !important;
+}
+
+/* Special Requirements Section */
+.form-textarea {
+  background-color: rgba(14, 27, 38, 0.66) !important;
+  border-color: rgba(236, 243, 250, 0.2) !important;
+  color: rgba(236, 243, 250, 0.7) !important;
+  border-radius: 8px;
+  min-height: 120px;
+}
+
+.form-textarea::placeholder {
+  color: rgba(236, 243, 250, 0.4) !important;
+}
+
+/* Submit Button */
+.submit-btn {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: rgb(245, 89, 61) !important;
+  border: none !important;
+  border-radius: 30px;
+  color: rgb(255, 255, 255) !important;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+.submit-btn:hover {
+  background-color: rgb(250, 110, 85) !important;
+  box-shadow: 0 4px 12px rgba(245, 89, 61, 0.3);
+}
+
+.submit-btn:active {
+  background-color: rgb(235, 70, 45) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .city-row,
+  .date-row,
+  .preferences-grid,
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

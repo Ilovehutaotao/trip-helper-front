@@ -1,7 +1,16 @@
+import type { FormData } from '../../components/TripPlanForm/TripPlanForm'
+import { Button } from 'antd'
+import { ReloadOutlined } from '@ant-design/icons'
 import NavBar from '../../components/NavBar/NavBar'
+import TripPlanForm from '../../components/TripPlanForm/TripPlanForm'
 import './Landing.css'
 
 function Landing() {
+  const handleFormSubmit = (data: FormData) => {
+    console.log('Trip plan submitted:', data)
+    // TODO: Send to backend or navigate to result page
+  }
+
   return (
     <div className="w-full">
       {/* Fixed NavBar */}
@@ -50,40 +59,10 @@ function Landing() {
         </div>
       </section>
 
-      {/* Spacer for hero height */}
-      <div className="w-full h-screen" />
-
       {/* Section 2: Form */}
       <section aria-label="表单" className="relative w-full bg-page py-16">
-        <div className="max-w-[1000px] mx-auto px-12">
-          {/* 步骤 01 */}
-          <div className="mb-6">
-            <h3 className="text-base font-semibold text-label mb-3">
-              01 目的地与行程
-            </h3>
-            {/* TODO: 输入框、日期选择等 */}
-          </div>
-
-          {/* 步骤 02 */}
-          <div className="mb-6">
-            <h3 className="text-base font-semibold text-label mb-3">
-              02 偏好设置
-            </h3>
-            {/* TODO: 下拉、多选框等 */}
-          </div>
-
-          {/* 步骤 03 */}
-          <div className="mb-6">
-            <h3 className="text-base font-semibold text-label mb-3">
-              03 特殊需求
-            </h3>
-            {/* TODO: 文本域等 */}
-          </div>
-
-          {/* 提交按钮 */}
-          <button className="w-full h-12 bg-accent-orange text-white font-medium rounded-btn-form">
-            开始规划旅程
-          </button>
+        <div className="max-w-[1000px] mx-auto px-5">
+          <TripPlanForm onSubmit={handleFormSubmit} />
         </div>
       </section>
 
@@ -92,12 +71,19 @@ function Landing() {
         <div className="max-w-[1000px] mx-auto px-12">
           {/* 标题区 */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-title">历史计划</h2>
-            {/* TODO: Refresh Button (Ant Design) */}
+            <div>
+              <p className="text-label text-sm mb-1">最近保存</p>
+              <h2 className="text-2xl font-bold text-title">历史计划</h2>
+            </div>
+            <Button
+              type="text"
+              icon={<ReloadOutlined />}
+              className="text-label"
+            />
           </div>
 
           {/* 卡片列表 */}
-          <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col gap-4">
             {/* 卡片占位 */}
             <div className="w-full min-h-48 bg-card-bg rounded-card border border-border-card p-5">
               {/* TODO: 历史卡片内容 */}

@@ -16,7 +16,7 @@ const antdTheme = {
     borderRadius: 12,
     borderRadiusLG: 20,
     borderRadiusSM: 6,
-    fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif",
+    fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif",
     fontSize: 14,
   },
 }
